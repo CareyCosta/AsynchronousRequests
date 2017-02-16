@@ -1,20 +1,22 @@
 $(document).ready(function () {
-  $('.button').on('click', function() {
+  $('.button-root').on('click', function() {
     $.ajax({
       url:'http://first-ajax-api.herokuapp.com/',
       method:'GET',
       dataType: 'text'
     }).done(function(responseData) {
-
+        console.log('Ajax request sent!');
+        $('#step12').append('Ajax request sent!');
     });
   });
-  $('.button2').on('click', function() {
+  $('.button-ping').on('click', function() {
     $.ajax({
       url:'http://first-ajax-api.herokuapp.com/ping',
       method:'GET',
       dataType: 'text'
     }).done(function(responseData){
-
+        console.log('Ajax request sent!');
+        $('#step3456').append('Ajax request sent!');
     });
   });
 });
