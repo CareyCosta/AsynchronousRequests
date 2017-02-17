@@ -55,7 +55,7 @@ $(document).ready(function () {
     $.ajax({
       url:'http://first-ajax-api.herokuapp.com/time',
       method:'GET',
-      timezone: 'America/Mexico_City',
+      data: {timezone:'America/Mexico_City'},
       dataType: 'text'
     }).done(function(responseData){
         console.log('Ajax request sent!');
@@ -69,5 +69,22 @@ $(document).ready(function () {
     });
   });
 
+  $('#step9').on('click', function () {
+    $.ajax({
+      url:'http://first-ajax-api.herokuapp.com/a_car',
+      method:'GET',
+    //  data:
+      dataType: 'html'
+    }).done(function(responseData){
+        console.log('Ajax request sent!');
+        $('#car').appendTo(responseData);
+    }).fail(function () {
+        console.log('Request Fail! Everybody panic!');
+        $('.car').append('Request Failed! Errybody Panic!')
+    }).always(function () {
+        console.log('The request has finished');
+        //$('.car').append('Request has Finished');
+    });
+  });
 
 });
